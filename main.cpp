@@ -6,36 +6,36 @@ int main()
 {
     DataBase base;
 
-    Student s1("Adam", "Malysz", 234398, 3.85);
-    Student s2("Tadeusz", "Bocian", 225587, 4.93);
-    Student s3("Monika", "Czajkowska", 223509, 4.06);
+    Student s1("Adam", "Malysz", 97021079971, "male", "ulica nr 4, 55-440 Wroclaw", 234398);
+    Student s2("Tadeusz", "Bocian", 82041738371, "male", "Kwiatowa nr 5, 44-098 Wroclaw", 225587);
+    Student s3("Monika", "Czajkowska", 98112759941, "famele", "Cukierkowa nr 6, 55-000 Wroclaw", 223509);
 
-    Employee e1("Elzbieta", "Krol", 3740);
-    Employee e2("Roman", "Czarny", 3565);
+    Employee e1("Elzbieta", "Krol", 53121246743, "female", "Rozana nr 3, 55-000 Wroclaw", 3740);
+    Employee e2("Roman", "Czarny", 95032514191, "male", "Czekoladowa nr 2, 44-500 Wrolaw", 3565);
 
-    base.addNewRecord(&s1);
-    base.addNewRecord(&e2);
-    base.addNewRecord(&s2);
-    base.addNewRecord(&e1);
-    base.addNewRecord(&s3);
+    base.addNewPerson(&s1);
+    base.addNewPerson(&e2);
+    base.addNewPerson(&s2);
+    base.addNewPerson(&e1);
+    base.addNewPerson(&s3);
 
-    base.displayRecordList();
+    base.displayPersonList();
 
     base.removeStudentByIndex(225587);
 
-    base.displayRecordList();
+    base.displayPersonList();
 
     base.sortStudentsByIndex();
 
-    base.displayRecordList();
+    base.displayPersonList();
 
     base.sortBySurname();
 
-    base.displayRecordList();
+    base.displayPersonList();
     
-    base.saveToFile();
+   // base.saveToFile();
 
-    base.loadFile();
+   // base.loadFile();
 
     return 0;
 }

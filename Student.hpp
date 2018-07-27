@@ -1,17 +1,16 @@
 #pragma once
 
-#include "Record.hpp"
+#include "Person.hpp"
 
-class Student: public Record
+class Student: public Person
 {
     int index;
-    float gpa;
+
 
 public:
-    Student(std::string, std::string, int, float);
+    Student(std::string, std::string, int, std::string, std::string, int);
 
     int getIndex() const;
-    float getGpa() const;
 
     void showAll() override;
     int getId() override;

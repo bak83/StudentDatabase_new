@@ -7,12 +7,12 @@
 #include <cstdlib>
 #include <sstream>
 
-void DataBase::addNewRecord(Record* r)
+void DataBase::addNewPerson(Person* r)
 {
     dataBase.push_back(r);
 }
 
-void DataBase::displayRecordList()
+void DataBase::displayPersonList()
 {
     std::cout << "BAZA DANYCH:" << std::endl;
     for (int i = 0; i < dataBase.size(); ++i) {
@@ -23,7 +23,7 @@ void DataBase::displayRecordList()
 
 void DataBase::sortStudentsByIndex()
 {
-    std::sort(dataBase.begin(), dataBase.end(), [](const Record* p1, const Record* p2) {
+    std::sort(dataBase.begin(), dataBase.end(), [](const Person* p1, const Person* p2) {
         return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
     }); // oddzielenie studentow od pracownikow (studenci na gorze)
 
@@ -35,14 +35,14 @@ void DataBase::sortStudentsByIndex()
             break;
     }
 
-    std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex, [](Record* p1, Record* p2) {
+    std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex, [](Person* p1, Person* p2) {
         return dynamic_cast<Student*>(p1)->getIndex() < dynamic_cast<Student*>(p2)->getIndex();
     });
 }
 
 void DataBase::sortBySurname()
 {
-    std::sort(dataBase.begin(), dataBase.end(), [](Record* p1, Record* p2) {
+    std::sort(dataBase.begin(), dataBase.end(), [](Person* p1, Person* p2) {
        return p1->getSurname() < p2->getSurname();
     });
 }
@@ -69,7 +69,7 @@ void DataBase::saveToFile()
             file << "S" << "," << dataBase[i]->getName() << ","
                  << dataBase[i]->getSurname() << ","
                  << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << ","
-                 << dynamic_cast<Student*>(dataBase.at(i))->getGpa() << std::endl;
+                 << std::endl;
         }
         else if (dataBase.at(i)->getId() == 2) {
             file << "E" << "," << dataBase[i]->getName() << ","
@@ -80,7 +80,7 @@ void DataBase::saveToFile()
 
     file.close();
 }
-
+/*
 void DataBase::loadFile()
 {
     std::fstream file;
@@ -91,7 +91,7 @@ void DataBase::loadFile()
         std::cout << "File not exist" << std::endl;
         exit(0);
     }
-    std::vector<Record*> fileDataBase;  // baza danych tylko z pliku
+    std::vector<Person*> fileDataBase;  // baza danych tylko z pliku
 
     std::string line;
     std::string indivString;
@@ -105,15 +105,14 @@ void DataBase::loadFile()
         }
         if (strVec[0] == "S") {
             int indexNum = std::stoi(strVec[3]);
-            float gpaNum = std::stof(strVec[4]);
-            Student* studentPtr = new Student(strVec[1], strVec[2], indexNum, gpaNum);
-            addNewRecord(studentPtr);
+            Student* studentPtr = new Student(strVec[1], strVec[2], indexNum);
+            addNewPerson(studentPtr);
             fileDataBase.push_back(studentPtr);
         }
         else if (strVec[0] == "E") {
             int salaryNum = std::stoi(strVec[3]);
             Employee* employeePtr = new Employee(strVec[1], strVec[2], salaryNum);
-            addNewRecord(employeePtr);
+            addNewPerson(employeePtr);
             fileDataBase.push_back(employeePtr);
         }
         strVec.clear();
@@ -126,8 +125,8 @@ void DataBase::loadFile()
         fileDataBase.at(i)->showAll();
     }
 }
-
-Record* DataBase::getRecord(size_t position) const
+*/
+Person* DataBase::getPerson(size_t position) const
 {
     return dataBase[position];
 }

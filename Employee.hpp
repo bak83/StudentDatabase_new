@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Record.hpp"
+#include "Person.hpp"
 
-class Employee: public Record
+class Employee: public Person
 {
     int salary;
 
 public:
-    Employee(std::string, std::string, int);
+    Employee(std::string, std::string, int, std::string, std::string, int);
 
     int getSalary() const;
 
