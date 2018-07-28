@@ -55,8 +55,8 @@ void DataBase::sortByPesel()
 }
 void DataBase::removeStudentByIndex(int idx)
 {
-    for (int i = 0; i < dataBase.size(); ++i){
-        if (dataBase.at(i)->getId() == 1 &&dataBase.removeStudentByIndex(225587)
+    for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase.at(i)->getId() == 1 &&
                 dynamic_cast<Student*>(dataBase.at(i))->getIndex() == idx) {
 
             dataBase.erase(dataBase.begin()+i);
@@ -64,6 +64,7 @@ void DataBase::removeStudentByIndex(int idx)
         }
     }
 }
+
 
 void DataBase::saveToFile()
 {
