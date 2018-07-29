@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
+#include <ctime>
 
 void DataBase::addNewPerson(Person* r)
 {
@@ -123,6 +124,47 @@ void DataBase::loadFile()
     }
 }
 */
+
+void DataBase::generateBase()
+
+{
+    std::cout << "BAZA DANYCH LOSOWA" << std::endl;
+   srand (time(NULL));
+
+   std::fstream file;
+   file.open("name.txt", std::ios::in);
+
+   if (file.good() == false)
+   {
+       std::cout << "File not exist" << std::endl;
+       exit(0);
+   }
+    std::vector<std::string> name;
+    std::string line;
+
+    while (getline(file,line))
+        name.push_back(line);
+    file.close();
+
+    file.open("name.txt", std::ios::in);
+
+    if (file.good() == false)
+    {
+        std::cout << "File not exist" << std::endl;
+        exit(0);
+    }
+     std::vector<std::string> surname;
+     std::string line2;
+
+     while (getline(file,line2))
+         surname.push_back(line2);
+     file.close();
+
+    for (int i = 0;i<5;i++)
+    std::cout << i+1 << ". " << surname[(std::rand() % 85)+1] << " " << name[(std::rand() % 500)+1] << std::endl;
+    file.close();
+}
+
 Person* DataBase::getPerson(size_t position) const
 {
     return dataBase[position];
