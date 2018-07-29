@@ -19,7 +19,7 @@ public:
 
     std::string getName() const;
     std::string getSurname() const;
-    int getPesel() const;
+    long int getPesel() const;
     std::string getSex() const;
     std::string getAddress() const;
     int getIndex() const;

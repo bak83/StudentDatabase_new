@@ -5,7 +5,7 @@ Person::Person(std::string n, std::string s, long int p, std::string se, std::st
 std::string Person::getName() const { return name; }
 
 std::string Person::getSurname() const { return surname; }
-int Person::getPesel() const { return pesel; }
+long int Person::getPesel() const { return pesel; }
 std::string Person::getSex() const { return sex; }
 std::string Person::getAddress() const { return address; }
 int Person::getIndex() const {return index;}
