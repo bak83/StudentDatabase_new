@@ -7,19 +7,20 @@ class Person
 {
     std::string name;
     std::string surname;
-    long int pesel;
+    std::string pesel;
     std::string sex;
     std::string address;
     int index;
     float salary;
 
 public:
-    Person(std::string, std::string, long int, std::string, std::string, int, float);
-    
+    void checkPesel() const;
+    Person(std::string, std::string, std::string, std::string, std::string, int, float);
+      
 
     std::string getName() const;
     std::string getSurname() const;
-    long int getPesel() const;
+    std::string getPesel() const;
     std::string getSex() const;
     std::string getAddress() const;
     int getIndex() const;

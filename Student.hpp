@@ -7,7 +7,7 @@ class Student: public Person
 
 
 public:
-    Student(std::string, std::string, long int, std::string, std::string, int, float);
+    Student(std::string, std::string, std::string, std::string, std::string, int, float);
     
     float getSalary();
     void showAll() override;

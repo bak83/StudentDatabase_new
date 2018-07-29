@@ -10,6 +10,7 @@
 void DataBase::addNewPerson(Person* r)
 {
     dataBase.push_back(r);
+    r->checkPesel();
 }
 
 void DataBase::displayPersonList()

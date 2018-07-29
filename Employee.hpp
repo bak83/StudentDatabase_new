@@ -6,7 +6,7 @@ class Employee: public Person
 {
         
 public:
-    Employee(std::string, std::string, long int, std::string, std::string, int, float);
+    Employee(std::string, std::string, std::string, std::string, std::string, int, float);
     
     int getIndex();
     void showAll() override;
