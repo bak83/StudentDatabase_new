@@ -47,6 +47,12 @@ void DataBase::sortBySurname()
     });
 }
 
+void DataBase::sortByPesel()
+{
+    std::sort(dataBase.begin(), dataBase.end(), [](Person* p1, Person* p2) {
+       return p1->getPesel() < p2->getPesel();
+     });
+}
 void DataBase::removeStudentByIndex(int idx)
 {
     for (int i = 0; i < dataBase.size(); ++i) {
@@ -58,6 +64,7 @@ void DataBase::removeStudentByIndex(int idx)
         }
     }
 }
+
 
 void DataBase::saveToFile()
 {

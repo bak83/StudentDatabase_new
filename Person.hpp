@@ -19,6 +19,7 @@ public:
     int getPesel() const;
     std::string getSex() const;
     std::string getAddress() const;
+    int getEarnings() const;
 
     virtual void showAll() = 0;
     virtual int getId() = 0;

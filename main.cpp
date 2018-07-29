@@ -32,6 +32,10 @@ int main()
     base.sortBySurname();
 
     base.displayPersonList();
+
+    base.sortByPesel();
+
+    base.displayPersonList();
     
    // base.saveToFile();
 

@@ -17,6 +17,8 @@ class DataBase
     void loadFile();
     void sortStudentsByIndex();
     void sortBySurname();
+    void sortByPesel();
+    void sortByEarnings();
     void removeStudentByIndex(int);
     Person* getPerson(size_t) const;
 };
