@@ -23,21 +23,10 @@ void DataBase::displayPersonList()
 
 void DataBase::sortStudentsByIndex()
 {
-    std::sort(dataBase.begin(), dataBase.end(), [](const Person* p1, const Person* p2) {
-        return std::type_index(typeid(*p1)) < std::type_index(typeid(*p2));
-    }); // oddzielenie studentow od pracownikow (studenci na gorze)
-
-    int boundaryIndex = 0;  // od tego elementu w bazie zaczyna sie typ Employee
-    for (int i = 0; i < dataBase.size(); ++i) {
-        if (dataBase.at(i)->getId() == 1)
-            boundaryIndex++;
-        else
-            break;
-    }
-
-    std::sort(dataBase.begin(), dataBase.begin()+boundaryIndex, [](Person* p1, Person* p2) {
-        return dynamic_cast<Student*>(p1)->getIndex() < dynamic_cast<Student*>(p2)->getIndex();
+    std::sort(dataBase.begin(), dataBase.end(), [](Person* p1, Person* p2) {
+       return p1->getIndex() < p2->getIndex();
     });
+
 }
 
 void DataBase::sortBySurname()

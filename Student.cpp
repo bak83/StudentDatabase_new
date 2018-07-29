@@ -1,10 +1,9 @@
 #include "Student.hpp"
 
-Student::Student(std::string n, std::string s, int p, std::string se, std::string a, int i):
-    Person(n, s, p, se, a), index(i) {}
+Student::Student(std::string n, std::string s, long int p, std::string se, std::string a, int i, float sal):Person(n, s, p, se, a, i, sal){}
 
-int Student::getIndex() const { return index; }
 
+float Student::getSalary(){return -1.00;}
 
 void Student::showAll()
 {

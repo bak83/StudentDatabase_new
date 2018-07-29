@@ -4,14 +4,12 @@
 
 class Student: public Person
 {
-    int index;
 
 
 public:
-    Student(std::string, std::string, int, std::string, std::string, int);
-
-    int getIndex() const;
-
+    Student(std::string, std::string, long int, std::string, std::string, int, float);
+    
+    float getSalary();
     void showAll() override;
     int getId() override;
 };

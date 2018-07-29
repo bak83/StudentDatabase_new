@@ -4,13 +4,11 @@
 
 class Employee: public Person
 {
-    int salary;
-
+        
 public:
-    Employee(std::string, std::string, int, std::string, std::string, int);
-
-    int getSalary() const;
-
+    Employee(std::string, std::string, long int, std::string, std::string, int, float);
+    
+    int getIndex();
     void showAll() override;
     int getId() override;
 };
