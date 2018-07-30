@@ -68,12 +68,23 @@ void DataBase::sortByPesel()
        return p1->getPesel() < p2->getPesel();
      });
 }
+
 void DataBase::removeByPesel(std::string pe)
 {
     for (int i = 0; i < dataBase.size(); ++i) {
         if (dataBase.at(i)->getPesel() == pe) {
-
             dataBase.erase(dataBase.begin()+i);
+            break;
+        }
+    }
+}
+
+void DataBase::changeAddressByPesel(std::string pe, std::string n)
+{ std::string newAddress = n;
+     for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase.at(i)->getPesel() == pe) {
+            dataBase[i]->setAddress(newAddress);
+            dataBase[i]->getAddress();
             break;
         }
     }

@@ -7,9 +7,10 @@ std::string Person::getSurname() const { return surname; }
 std::string Person::getPesel() const { return pesel;}
 std::string Person::getSex() const { return sex; }
 std::string Person::getAddress() const { return address; }
+void Person::setAddress(std::string a) {address = a; }
 int Person::getIndex() const {return index;}
+void Person::setSalary(float f) { salary = f;}
 float Person::getSalary() const {return salary;}
-
 
 
 

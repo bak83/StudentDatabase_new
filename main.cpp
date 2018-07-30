@@ -18,23 +18,21 @@ int main()
     base.addNewPerson(&s2);
     base.addNewPerson(&e1);
     base.addNewPerson(&s3);
+    base.displayPersonList();
     
+    base.changeAddressByPesel("95032514191", "Kraina baśni 9, 99-000 Iksowo");
     base.displayPersonList();
 
     base.removeByPesel("95032514191");
-
     base.displayPersonList();
 
     base.sortStudentsByIndex();
-
     base.displayPersonList();
 
     base.sortBySurname();
-
     base.displayPersonList();
 
     base.sortByPesel();
-
     base.displayPersonList();
     
    // base.saveToFile();
