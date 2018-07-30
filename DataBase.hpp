@@ -19,7 +19,7 @@ class DataBase
     void sortBySurname();
     void sortByPesel();
     void sortByEarnings();
-    void removeStudentByIndex(int);
+    void removeByPesel(std::string);
     void generateBase();   
     Person* getPerson(size_t) const;
     bool checkPesel(std::string);

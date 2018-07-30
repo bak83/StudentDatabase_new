@@ -21,7 +21,7 @@ int main()
     
     base.displayPersonList();
 
-    base.removeStudentByIndex(225587);
+    base.removeByPesel("95032514191");
 
     base.displayPersonList();
 

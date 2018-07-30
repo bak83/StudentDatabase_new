@@ -68,11 +68,10 @@ void DataBase::sortByPesel()
        return p1->getPesel() < p2->getPesel();
      });
 }
-void DataBase::removeStudentByIndex(int idx)
+void DataBase::removeByPesel(std::string pe)
 {
     for (int i = 0; i < dataBase.size(); ++i) {
-        if (dataBase.at(i)->getId() == 1 &&
-                dynamic_cast<Student*>(dataBase.at(i))->getIndex() == idx) {
+        if (dataBase.at(i)->getPesel() == pe) {
 
             dataBase.erase(dataBase.begin()+i);
             break;
