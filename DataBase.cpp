@@ -123,7 +123,7 @@ void DataBase::loadFile()
         fileDataBase.at(i)->showAll();
     }
 }
-*/
+
 
 void DataBase::generateBase()
 
@@ -164,7 +164,7 @@ void DataBase::generateBase()
     std::cout << i+1 << ". " << surname[(std::rand() % 85)+1] << " " << name[(std::rand() % 500)+1] << std::endl;
     file.close();
 }
-
+*/
 Person* DataBase::getPerson(size_t position) const
 {
     return dataBase[position];

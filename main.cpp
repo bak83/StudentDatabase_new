@@ -41,7 +41,7 @@ int main()
 
    // base.loadFile();
 
-    base.generateBase();
+ //   base.generateBase();
 
     return 0;
 }

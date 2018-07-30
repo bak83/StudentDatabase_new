@@ -20,6 +20,6 @@ class DataBase
     void sortByPesel();
     void sortByEarnings();
     void removeStudentByIndex(int);
-    void generateBase();
+ //   void generateBase();
     Person* getPerson(size_t) const;
 };
