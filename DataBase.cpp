@@ -7,11 +7,14 @@
 #include <cstdlib>
 #include <sstream>
 #include <ctime>
+#include <stdexcept>
+
 
 void DataBase::addNewPerson(Person* r)
 {
     dataBase.push_back(r);
-    r->checkPesel();
+ //   int peselError = r->checkPesel();
+ //   if(peselError > 0) throw std::invalid_argument("Invalid PESEL number");
 }
 
 void DataBase::displayPersonList()
