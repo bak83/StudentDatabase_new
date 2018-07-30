@@ -1,7 +1,7 @@
 #include "DataBase.hpp"
 
- #include <iostream>
-
+#include <iostream>
+#include <stdexcept>
 int main()
 {
     DataBase base;
@@ -13,12 +13,16 @@ int main()
     Employee e1("Elzbieta", "Krol", "53121246743", "female", "Rozana nr 3, 55-000 Wroclaw",0, 3740);
     Employee e2("Roman", "Czarny", "95032514191", "male", "Czekoladowa nr 2, 44-500 Wrolaw",0, 3565);
 
+    //try{
     base.addNewPerson(&s1);
     base.addNewPerson(&e2);
     base.addNewPerson(&s2);
     base.addNewPerson(&e1);
     base.addNewPerson(&s3);
-
+    /*}catch(std::invalid_argument& e)
+    {
+        std::cout << "std::invalid_argument"  << e.what() << std::endl;
+    }*/
     base.displayPersonList();
 
     base.removeStudentByIndex(225587);

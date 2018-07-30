@@ -14,10 +14,9 @@ class Person
     float salary;
 
 public:
-    void checkPesel() const;
     Person(std::string, std::string, std::string, std::string, std::string, int, float);
-      
 
+ //   int checkPesel() const;
     std::string getName() const;
     std::string getSurname() const;
     std::string getPesel() const;
