@@ -22,7 +22,7 @@ class DataBase
     void removeByPesel(std::string);
     void changeAddressByPesel(std::string, std::string);
     void changeSalaryByPesel(std::string);
-    void generateBase();   
+    void generateBase(int);
     Person* getPerson(size_t) const;
     bool checkPesel(std::string);
 };
