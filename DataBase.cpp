@@ -176,7 +176,7 @@ void DataBase::loadFile()
 }
 */
 
-void DataBase::generateBase()
+void DataBase::generateBase(int counter)
 
 {
     std::cout << "BAZA DANYCH LOSOWA" << std::endl;
@@ -197,7 +197,7 @@ void DataBase::generateBase()
         name.push_back(line);
     file.close();
 
-    file.open("name.txt", std::ios::in);
+    file.open("surname.txt", std::ios::in);
 
     if (file.good() == false)
     {
@@ -211,8 +211,53 @@ void DataBase::generateBase()
          surname.push_back(line2);
      file.close();
 
-    for (int i = 0;i<5;i++)
-    std::cout << i+1 << ". " << surname[(std::rand() % 85)+1] << " " << name[(std::rand() % 500)+1] << std::endl;
+    file.open("PESEL.txt", std::ios::in);
+
+    if (file.good() == false)
+    {
+        std::cout << "File not exist" << std::endl;
+        exit(0);
+    }
+     std::vector<std::string> PESEL;
+     std::string line3;
+
+     while (getline(file,line3))
+         PESEL.push_back(line3);
+     file.close();
+
+     file.open("street.txt", std::ios::in);
+
+     if (file.good() == false)
+     {
+         std::cout << "File not exist" << std::endl;
+         exit(0);
+     }
+      std::vector<std::string> street;
+      std::string line4;
+
+      while (getline(file,line4))
+          street.push_back(line4);
+      file.close();
+
+      file.open("city.txt", std::ios::in);
+
+      if (file.good() == false)
+      {
+          std::cout << "File not exist" << std::endl;
+          exit(0);
+      }
+       std::vector<std::string> city;
+       std::string line5;
+
+       while (getline(file,line5))
+           city.push_back(line5);
+       file.close();
+
+    for (int i = 0;i < counter;i++)
+    std::cout << i+1 << ". " << surname[(std::rand() % 85)+1] << " " << name[(std::rand() % 500)+1]
+              << " " << PESEL[(std::rand() % 85)+1]<< " ul." << street[(std::rand() % 75)+1]
+              << " " << (std::rand() % 75)+1 << "/" << (std::rand() % 75)+1 << " " << (std::rand() % 99)+1
+              << "-" << (std::rand() % 999)+100 << " " << city[(std::rand() % 70)+1] << std::endl;
     file.close();
 }
 
