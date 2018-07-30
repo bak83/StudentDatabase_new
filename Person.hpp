@@ -16,7 +16,7 @@ class Person
 public:
     Person(std::string, std::string, std::string, std::string, std::string, int, float);
 
- //   int checkPesel() const;
+    int checkPesel();
     std::string getName() const;
     std::string getSurname() const;
     std::string getPesel() const;

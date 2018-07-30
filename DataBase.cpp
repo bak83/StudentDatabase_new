@@ -10,11 +10,32 @@
 #include <stdexcept>
 
 
+
 void DataBase::addNewPerson(Person* r)
 {
-    dataBase.push_back(r);
- //   int peselError = r->checkPesel();
- //   if(peselError > 0) throw std::invalid_argument("Invalid PESEL number");
+    std::string pe = r->getPesel();
+    try{
+        if (checkPesel(pe)) {dataBase.push_back(r);}
+        else {throw std::invalid_argument("Invalid PESEL number ");}
+    }catch(std::invalid_argument& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+
+    }
+
+bool DataBase::checkPesel(std::string p)
+{
+    std::string pesel = p;
+    int sum;
+    if (pesel.size()==11){
+        sum = pesel[0] * 1 + pesel[1] * 3 + pesel[2] * 7 + pesel[3] * 9 + pesel[4] + pesel[5] * 3 + pesel[6] * 7 + pesel[7] * 9 + pesel[8] + pesel[9] * 3 + pesel[10];
+        sum %=10;
+    }
+    else return false;
+    if (sum == 0) return true;
+    else return false;
+
 }
 
 void DataBase::displayPersonList()
@@ -126,7 +147,7 @@ void DataBase::loadFile()
         fileDataBase.at(i)->showAll();
     }
 }
-
+*/
 
 void DataBase::generateBase()
 
@@ -167,7 +188,7 @@ void DataBase::generateBase()
     std::cout << i+1 << ". " << surname[(std::rand() % 85)+1] << " " << name[(std::rand() % 500)+1] << std::endl;
     file.close();
 }
-*/
+
 Person* DataBase::getPerson(size_t position) const
 {
     return dataBase[position];
