@@ -96,7 +96,7 @@ void DataBase::changeSalaryByPesel(std::string pe, float s)
      for (int i = 0; i < dataBase.size(); ++i) {
         if (dataBase.at(i)->getPesel() == pe) {
             
-            if (dataBase.at(i)->getIndex() == std::numeric_limits<int>::max()) {
+            if ((dataBase.at(i)->getSalary()) >= 0) {
                 dataBase[i]->setSalary(newSalary);
                 dataBase[i]->getSalary();
                 break;
@@ -114,18 +114,15 @@ void DataBase::saveToFile()
     file.open("Base.txt", std::ios::out);
 
     for (int i = 0; i < dataBase.size(); ++i) {
-        if (dataBase.at(i)->getId() == 1) {
-            file << "S" << "," << dataBase[i]->getName() << ","
+        
+            file << dataBase[i]->getName() << ","
                  << dataBase[i]->getSurname() << ","
-                 << dynamic_cast<Student*>(dataBase.at(i))->getIndex() << ","
+                 << dataBase[i]->getPesel() << ","
+                 << dataBase[i]->getAddress() << ","
+                 << dataBase[i]->getIndex() << ","
+                 << dataBase[i]->getSalary() << ","
                  << std::endl;
         }
-        else if (dataBase.at(i)->getId() == 2) {
-            file << "E" << "," << dataBase[i]->getName() << ","
-                 << dataBase[i]->getSurname() << ","
-                 << dynamic_cast<Employee*>(dataBase.at(i))->getSalary() << std::endl;
-        }
-    }
 
     file.close();
 }

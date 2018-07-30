@@ -16,4 +16,3 @@ void Employee::showAll()
               << getSalary() << std::endl;
 }
 
-int Employee::getId() { return 2; }

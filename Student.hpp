@@ -11,5 +11,4 @@ public:
     
     float getSalary();
     void showAll() override;
-    int getId() override;
 };

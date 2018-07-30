@@ -10,5 +10,5 @@ public:
     
     int getIndex();
     void showAll() override;
-    int getId() override;
+ 
 };

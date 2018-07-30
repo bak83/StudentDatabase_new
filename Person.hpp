@@ -27,5 +27,4 @@ public:
     void setAddress(std::string);   
     void setSalary(float);
     virtual void showAll() = 0;
-    virtual int getId() = 0;
 };

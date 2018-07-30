@@ -16,4 +16,3 @@ void Student::showAll()
               << std::endl;
 }
 
-int Student::getId() { return 1; }
