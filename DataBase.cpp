@@ -91,6 +91,23 @@ void DataBase::changeAddressByPesel(std::string pe, std::string n)
 }
 
 
+void DataBase::changeSalaryByPesel(std::string pe, float s)
+{ float newSalary = s;
+     for (int i = 0; i < dataBase.size(); ++i) {
+        if (dataBase.at(i)->getPesel() == pe) {
+            
+            if (dataBase.at(i)->getIndex() == std::numeric_limits<int>::max()) {
+                dataBase[i]->setSalary(newSalary);
+                dataBase[i]->getSalary();
+                break;
+
+             } else dataBase[i]->getSalary();
+
+        }
+    }
+}
+
+
 void DataBase::saveToFile()
 {
     std::fstream file;

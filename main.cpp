@@ -23,6 +23,11 @@ int main()
     base.changeAddressByPesel("95032514191", "Kraina baśni 9, 99-000 Iksowo");
     base.displayPersonList();
 
+   
+    base.changeSalaryByPesel("95032514191", 2345.09);
+    base.displayPersonList();
+
+
     base.removeByPesel("95032514191");
     base.displayPersonList();
 
