@@ -112,67 +112,52 @@ void DataBase::saveToFile()
 {
     std::fstream file;
     file.open("Base.txt", std::ios::out);
-
+ if(!file.is_open())
+     throw std::runtime_error("Unable to open");
+ else{
     for (int i = 0; i < dataBase.size(); ++i) {
         
-            file << dataBase[i]->getName() << ","
-                 << dataBase[i]->getSurname() << ","
-                 << dataBase[i]->getPesel() << ","
-                 << dataBase[i]->getAddress() << ","
-                 << dataBase[i]->getIndex() << ","
-                 << dataBase[i]->getSalary() << ","
+            file << dataBase[i]->getName() << "|"
+                 << dataBase[i]->getSurname() << "|"
+                 << dataBase[i]->getPesel() << "|"
+                 << dataBase[i]->getAddress() << "|"
+                 << dataBase[i]->getIndex() << "|"
+                 << dataBase[i]->getSalary() << "|"
                  << std::endl;
         }
 
     file.close();
+    }
 }
 /*
 void DataBase::loadFile()
 {
     std::fstream file;
     file.open("Base.txt", std::ios::in);
-
-    if (file.good() == false)
-    {
-        std::cout << "File not exist" << std::endl;
-        exit(0);
-    }
-    std::vector<Person*> fileDataBase;  // baza danych tylko z pliku
-
-    std::string line;
-    std::string indivString;
-    char separator = ',';
-    std::vector<std::string> strVec;
+    file.open("Base.txt", std::ios::out);
+    if(!file.good())
+         throw std::runtime_error("Unable to open");
+    else{
+        std::string line;
+        std::string indivString;
+        char separator = '|';
+        std::vector<std::string> strVec;
 
     while (std::getline(file, line)) {
         std::stringstream ss(line);
         while (std::getline(ss, indivString, separator)) {
             strVec.push_back(indivString);
         }
-        if (strVec[0] == "S") {
-            int indexNum = std::stoi(strVec[3]);
-            Student* studentPtr = new Student(strVec[1], strVec[2], indexNum);
-            addNewPerson(studentPtr);
-            fileDataBase.push_back(studentPtr);
-        }
-        else if (strVec[0] == "E") {
-            int salaryNum = std::stoi(strVec[3]);
-            Employee* employeePtr = new Employee(strVec[1], strVec[2], salaryNum);
-            addNewPerson(employeePtr);
-            fileDataBase.push_back(employeePtr);
-        }
+        Person* Ptr = new Person(strVec[0], strVec[1], strVec[2], strVec[3], strVec[4], strVec[5]);
+        addNewPerson(Ptr);
         strVec.clear();
     }
 
     file.close();
-    std::cout << "BAZA DANYCH Z PLIKU:" << std::endl;
-    for (int i = 0; i < fileDataBase.size(); ++i) {
-        std::cout << i+1 << ". ";
-        fileDataBase.at(i)->showAll();
     }
 }
-*/
 
+*/
 void DataBase::generateBase(int counter)
 
 {

@@ -8,7 +8,8 @@ class Employee: public Person
 public:
     Employee(std::string, std::string, std::string, std::string, std::string, int, float);
     
-    int getIndex();
+    int getIndex() override;
+    float getSalary () override;
     void showAll() override;
  
 };

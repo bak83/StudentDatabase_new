@@ -10,6 +10,7 @@ class Person
     std::string pesel;
     std::string sex;
     std::string address;
+protected:
     int index;
     float salary;
 
@@ -22,8 +23,8 @@ public:
     std::string getPesel() const;
     std::string getSex() const;
     std::string getAddress() const;
-    int getIndex() const;
-    float getSalary() const;
+    virtual int getIndex() = 0;
+    virtual float getSalary() = 0;
     void setAddress(std::string);   
     void setSalary(float);
     virtual void showAll() = 0;

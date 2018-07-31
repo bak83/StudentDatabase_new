@@ -8,7 +8,8 @@ class Student: public Person
 
 public:
     Student(std::string, std::string, std::string, std::string, std::string, int, float);
-    
-    float getSalary();
+   
+    int getIndex() override;
+    float getSalary() override; 
     void showAll() override;
 };

@@ -8,7 +8,7 @@ int main()
 
     Student* s1 = new Student("Adam", "Malysz", "97721079971", "male", "ulica nr 4, 55-440 Wroclaw", 234398, 0.0);
     Student* s2 = new Student("Tadeusz", "Bocian", "82041738371", "male", "Kwiatowa nr 5, 44-098 Wroclaw", 225587, 0.0);
-    Student* s3 = new Student("Monika", "Czajkowska", "98112759941", "famele", "Cukierkowa nr 6, 55-000 Wroclaw", 223509, 0.0);
+    Student* s3 = new Student("Monika", "Czajkowska", "98112759941", "female", "Cukierkowa nr 6, 55-000 Wroclaw", 223509, 0.0);
 
     Employee* e1 = new Employee("Elzbieta", "Krol", "53121246743", "female", "Rozana nr 3, 55-000 Wroclaw",0, 3740);
     Employee* e2 = new Employee ("Roman", "Czarny", "95032514191", "male", "Czekoladowa nr 2, 44-500 Wrolaw",0, 3565);
@@ -40,8 +40,12 @@ int main()
     base.sortByPesel();
     base.displayPersonList();
     
- //   base.saveToFile();
-
+    try{
+    base.saveToFile();
+    }catch(std::runtime_error const& )
+    {
+        std::cout << "std::runtime_error" << std::endl;
+    }
    // base.loadFile();
 
     base3.generateBase(6);
