@@ -4,7 +4,7 @@ Student::Student(std::string n, std::string s, std::string p, std::string se, st
 
 int Student::getIndex(){return index;}
 
-float Student::getSalary(){return -1.00;}
+float Student::getSalary(){return salary;}
 
 void Student::showAll()
 {
@@ -14,6 +14,7 @@ void Student::showAll()
               << getSex() << "  "
               << getAddress() << "  "
               << getIndex() << "  "
+              << getSalary() << "  "
               << std::endl;
 }
 

@@ -6,6 +6,7 @@ Employee::Employee(std::string n, std::string s, std::string p, std::string se, 
 
 float Employee::getSalary(){return salary;}
 
+
 int Employee::getIndex() {int i=std::numeric_limits<int>::max(); return i;}
 void Employee::showAll()
 {
@@ -14,6 +15,7 @@ void Employee::showAll()
               << getPesel() << "  "
               << getSex() << "  "
               << getAddress() << "  "
+              << getIndex() << "  "
               << getSalary() << std::endl;
 }
 

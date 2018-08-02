@@ -39,6 +39,9 @@ int main()
 
     base.sortByPesel();
     base.displayPersonList();
+
+    base.sortBySalary();
+    base.displayPersonList();
     
     try{
     base.saveToFile();

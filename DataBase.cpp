@@ -69,6 +69,15 @@ void DataBase::sortByPesel()
      });
 }
 
+void DataBase::sortBySalary()
+{
+    std::sort(dataBase.begin(), dataBase.end(), [](Person* p1, Person* p2)
+    {
+        return p1->getSalary() < p2->getSalary();
+    });
+}
+
+
 void DataBase::removeByPesel(std::string pe)
 {
     for (int i = 0; i < dataBase.size(); ++i) {

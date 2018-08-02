@@ -18,7 +18,7 @@ class DataBase
     void sortStudentsByIndex();
     void sortBySurname();
     void sortByPesel();
-    void sortByEarnings();
+    void sortBySalary();
     void removeByPesel(std::string);
     void changeAddressByPesel(std::string, std::string);
     void changeSalaryByPesel(std::string, float);
