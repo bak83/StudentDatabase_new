@@ -44,7 +44,7 @@ int main()
     base.displayPersonList();
     
     try{
-    base.saveToFile();
+        base.saveToFile();
     }catch(std::runtime_error const& )
     {
         std::cout << "std::runtime_error" << std::endl;
