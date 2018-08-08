@@ -31,7 +31,6 @@ bool DataBase::checkPesel(std::string p)
     std::array <char, 11> multipliers = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1};
     if (pesel.size()==11){
         for(int i=0; i < 11; i++) sum += (pesel[i] *  multipliers[i]);
-        
         if (sum % 10  == 0) return true;
         else return false;
     }
@@ -110,7 +109,6 @@ void DataBase::changeSalaryByPesel(std::string pe, float s)
                 dataBase[i]->setSalary(newSalary);
                 dataBase[i]->getSalary();
                 break;
-
              } else dataBase[i]->getSalary();
         }
     }
@@ -119,41 +117,40 @@ void DataBase::changeSalaryByPesel(std::string pe, float s)
 
 void DataBase::saveToFile()
 {
-    std::ofstream file;
-    for (auto const & i: dataBase) {        
-            file << i->getName() << "|"
-                 << i->getSurname() << "|"
-                 << i->getPesel() << "|"
-                 << i->getAddress() << "|"
-                 << i->getIndex() << "|"
-                 << i->getSalary() << "|"
-                 << std::endl;
+    std::fstream file;
+    file.open("Base.txt", std::ios::out);
+    if(!file.is_open()) throw std::runtime_error("Unable to open!");
+    
+    for (int i=0; i < dataBase.size(); i++) {        
+    file <<  dataBase[i]->toString() << std::endl;
     }
     file.close();
 }
-/*
-void DataBase::loadFile(std::string fileName)
+
+void DataBase::loadFile()
 {
-    std::ifstream file (fileName);
+    std::fstream file;
     std::string line;
     char separator = '|';
+    
+    file.open("Base.txt", std::ios::in);
+    if(!file.good()) throw std::runtime_error("No file. Unable to open!");
 
     while (std::getline(file, line)) {
-        if(line.find("-1") != string::npos)
+        if(line.find("-1") != std::string::npos)
         {
-            *Person person = new Student(line);
+            Student* person = new Student(line);
             addNewPerson(person);
-
-
         }
-
+        else{
+            Employee* person = new Employee(line);
+            addNewPerson(person);
+        }
     }
-
     file.close();
-    }
 }
 
-*/
+
 void DataBase::generateBase(int counter)
 {
     std::cout << "BAZA DANYCH LOSOWA" << std::endl;

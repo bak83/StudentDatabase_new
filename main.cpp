@@ -49,8 +49,14 @@ int main()
     {
         std::cout << "std::runtime_error" << std::endl;
     }
-   // base.loadFile();
-
+    try{
+        base2.loadFile();
+        base2.displayPersonList();
+    }catch(std::runtime_error const& )
+    {
+        std::cout <<"std::runtime_error"<< std::endl;
+    }
+    
     base3.generateBase(6);
     base3.displayPersonList();
 

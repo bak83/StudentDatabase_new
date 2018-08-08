@@ -16,7 +16,7 @@ protected:
 
 public:
     Person(std::string, std::string, std::string, std::string, std::string, int, float);
-
+    Person(std::string);
     int checkPesel();
     std::string getName() const;
     std::string getSurname() const;
@@ -28,4 +28,5 @@ public:
     void setAddress(std::string);   
     void setSalary(float);
     virtual void showAll() = 0;
+    std::string toString() const;
 };
